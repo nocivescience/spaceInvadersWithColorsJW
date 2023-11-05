@@ -8,6 +8,8 @@
     
         init: function(){
             this.c = document.getElementById("game");
+            this.theme= new Audio();
+            this.theme.src = "./testigo.mp3";
             this.c.width = this.c.width;
             this.c.height = this.c.height;
             this.ctx = this.c.getContext("2d");
@@ -69,6 +71,9 @@
                 if(!Game.player.invincible  && !Game.oneShot){
                     Game.player.shoot();
                     Game.oneShot = true;
+                    Game.theme.play();
+                    Game.theme.loop = true;
+                    Game.theme.volume = 0.5;
                 }
                 if(Game.isGameOver){
                     Game.init();
